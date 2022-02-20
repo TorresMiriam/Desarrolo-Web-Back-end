@@ -6,6 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
@@ -23,7 +24,7 @@ import java.util.InputMismatchException;
  */
 public class Practica1 {
     /**
-     * Nos permite leer los archivos csv.
+     * Separador de los archivos csv.
      */
     public static final String SEPARADOR = ",";
     /**
@@ -75,6 +76,7 @@ public class Practica1 {
         BufferedWriter bw = null;
         FileWriter fw = null;
         try{
+            /**data por el momento es prueba, si funciona */
             String data = "holii xdxd";
             File file = new File("Hola.csv");
             if(!file.exists()){
@@ -102,12 +104,13 @@ public class Practica1 {
     /**
      * Recibe desde la consola los datos de un 
      * customer y guarda su información.
-     */
-    /** 
+     */ 
     public void createCustomer(){
-        
+        final String[] parametros = {"Customer_id", "Nombre", "Surname", "RFC", "Email"};
+        final Character ch = ',';
+        String archivoCSV = "Customer.csv";
+        ArrayList<Customer> customerList = new ArrayList<>();
     }
-    */
     /**
      * Recibe desde la consola un customer_id 
      * y elimina el customer con el mismo id.
