@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.InputMismatchException;
+import java.util.List;
 
 /** 
  * Desarrollo Back-end
@@ -72,20 +73,34 @@ public class Practica1 {
     /**
      * Método que nos permite editar un archivo csv.
      */
-    public void editar(){
+    public static void editar(List<Customer> customers){
         BufferedWriter bw = null;
         FileWriter fw = null;
         try{
             /**data por el momento es prueba, si funciona */
-            String data = "holii xdxd";
-            File file = new File("Hola.csv");
+            /**String data = "holii xdxd"; */
+            File file = new File("Customer.csv");
             if(!file.exists()){
                 file.createNewFile();
             }
             fw = new FileWriter(file.getAbsoluteFile(), true);
             bw = new BufferedWriter(fw);
-            bw.write(data);
+            /** Datos para identificar las columnas */
+            bw.write("Customer_id");
+            bw.write("Nombre");
+            bw.write("Surname");
+            bw.write("Email");
+            bw.write("RFC");
+            /** Mostramos mensaje de info guardada */
             System.out.println("Información guardada");
+            /** Recorremos la lista y lo insertamos en el archivo */
+            for(Customer customer : customers){
+                bw.write("Customer_id");
+                bw.write("Nombre");
+                bw.write("Surname");
+                bw.write("Email");
+                bw.write("RFC");
+            }
         } catch(IOException e){
             e.printStackTrace();
         } finally {
@@ -105,12 +120,11 @@ public class Practica1 {
      * Recibe desde la consola los datos de un 
      * customer y guarda su información.
      */ 
-    public void createCustomer(){
-        final String[] parametros = {"Customer_id", "Nombre", "Surname", "RFC", "Email"};
-        final Character ch = ',';
-        String archivoCSV = "Customer.csv";
-        ArrayList<Customer> customerList = new ArrayList<>();
+    /** 
+    public void createCustomer(List<Customer> customer){
+        
     }
+    */
     /**
      * Recibe desde la consola un customer_id 
      * y elimina el customer con el mismo id.
@@ -142,8 +156,9 @@ public class Practica1 {
                         p1.getCustomers();
                         break;
                     case 2: 
-                        Practica1 p2 = new Practica1();
-                        p2.editar();
+                        List<Customer> customers = new ArrayList<Customer>();
+                        customers.add(new Customer(3557,"Juan","Torres","juan@gmail.com",3756412389056));
+                        editar(customers);
                         break;
                     case 3:
                         System.out.println("Holi");
