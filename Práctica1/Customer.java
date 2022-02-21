@@ -9,19 +9,29 @@
  * customer_id;
  * name;
  * surname;
- * rfc;
  * mail;
- * Region;
+ * rfc;
  */
 public class Customer{
     public int customer_id;
     public String name;
     public String surname;
-    public int rfc;
     public String email;
+    public String rfc;
     /** private Region(); */
     /**
+     * Constructor de nuestra clase Customer.
+     */
+    public Customer(int customer_id, String name, String surname, String email, String rfc){
+        this.customer_id = customer_id;
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.rfc = rfc;
+    }
+    /**
      * Métodos set y get para acceder a los atributos publicos.
+     * Customer_id.
      * */
     public void setCustomerID(int customer_id){
         this.customer_id = customer_id;
@@ -29,24 +39,30 @@ public class Customer{
     public int getCustomerID(){
         return this.customer_id;
     }
+    /**
+     * Métodos set y get para acceder a los atributos publicos.
+     * Nombre.
+     * */
     public void setName(String name){
         this.name = name;
     }
     public String getName(){
         return this.name;
     }
+    /**
+     * Métodos set y get para acceder a los atributos publicos.
+     * Surname.
+     * */
     public void setSurname(String surname){
         this.surname = surname;
     }
     public String getSurname(){
         return this.surname;
     }
-    public void setRFC(int rfc){
-        this.rfc = rfc;
-    }
-    public int getRFC(){
-        return this.rfc;
-    }
+    /**
+     * Métodos set y get para acceder a los atributos publicos.
+     * Email.
+     * */
     public void setEmail(String email){
         this.email = email;
     }
@@ -54,10 +70,20 @@ public class Customer{
         return this.email;
     }
     /**
+     * Métodos set y get para acceder a los atributos publicos.
+     * RFC.
+     * */
+    public void setRFC(String rfc){
+        this.rfc = rfc;
+    }
+    public String getRFC(){
+        return this.rfc;
+    }
+    /**
      * Método toString para la lectura de cadenas.
      */
     @Override
     public String toString(){
-        return "Customer{" + "Customer_id = " + customer_id + ", Nombre = " + name + ", Surname = " + surname + ", Email = " + email + ", RFC = " + rfc + '}';
+        return customer_id + "," + name + "," + email + "," + rfc;
     }
 }

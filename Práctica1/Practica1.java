@@ -71,9 +71,10 @@ public class Practica1 {
         }
     }
     /**
-     * Método que nos permite editar un archivo csv.
-     */
-    public static void editar(List<Customer> customers){
+     * Recibe desde la consola los datos de un 
+     * customer y guarda su información.
+     */ 
+    public static void createCustomer(List<Customer> customers){
         BufferedWriter bw = null;
         FileWriter fw = null;
         try{
@@ -95,11 +96,11 @@ public class Practica1 {
             System.out.println("Información guardada");
             /** Recorremos la lista y lo insertamos en el archivo */
             for(Customer customer : customers){
-                bw.write("Customer_id");
-                bw.write("Nombre");
-                bw.write("Surname");
-                bw.write("Email");
-                bw.write("RFC");
+                bw.write(customer.getCustomerID());
+                bw.write(customer.getName());
+                bw.write(customer.getSurname());
+                bw.write(customer.getEmail());
+                bw.write(customer.getRFC());
             }
         } catch(IOException e){
             e.printStackTrace();
@@ -117,20 +118,10 @@ public class Practica1 {
         }
     }
     /**
-     * Recibe desde la consola los datos de un 
-     * customer y guarda su información.
-     */ 
-    /** 
-    public void createCustomer(List<Customer> customer){
-        
-    }
-    */
-    /**
      * Recibe desde la consola un customer_id 
      * y elimina el customer con el mismo id.
-     */ 
-    /** 
-    public void deleteCustomer(int customer_id){
+      
+    public void deleteCustomer(int customer_id){      
         
     }
     */
@@ -139,9 +130,10 @@ public class Practica1 {
         Scanner sn = new Scanner(System.in);
         boolean salir = false;
         int opcion;
+        int id;
 
         while(!salir){
-            System.out.println("1. Mostrar datos del cliente");
+            System.out.println("1. Mostrar datos de los cliente");
             System.out.println("2. Agregar datos");
             System.out.println("3. Eliminar un cliente");
             System.out.println("4. Salir");
@@ -156,12 +148,14 @@ public class Practica1 {
                         p1.getCustomers();
                         break;
                     case 2: 
-                        List<Customer> customers = new ArrayList<Customer>();
-                        customers.add(new Customer(3557,"Juan","Torres","juan@gmail.com",3756412389056));
-                        editar(customers);
+                        ArrayList<Customer> customers = new ArrayList<Customer>();
+                        customers.add(new Customer(3557,"Juan","Torres","juan@gmail.com","1234567890123"));
+                        createCustomer(customers);
+                        System.out.println(customers.toString());
                         break;
                     case 3:
-                        System.out.println("Holi");
+                        System.out.println("Dame el id del cliente que quieres eliminar:");
+                        id = sn.nextInt();
                         break;
                     case 4:
                         salir = true;

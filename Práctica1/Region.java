@@ -9,16 +9,21 @@
  * region;
  */
 public class Region{
-    private int region_id;
+    public int region_id;
     public String region;
     /**
-     * Método get para acceder a los atributos privados. 
+     * Método get y set para acceder a los atributos.
+     * Region_id 
      * */
-    public void getId(int id){
-        region_id  = id;
+    public void setRegionID(int region){
+        this.region_id = region_id;
+    }
+    public int getId(){
+        return this.region_id;
     }
     /**
-     * Métodos get y set para acceder a los atributos publicos. 
+     * Métodos get y set para acceder a los atributos.
+     * Region. 
      * */
     public void setRegion(String region){
         this.region = region;

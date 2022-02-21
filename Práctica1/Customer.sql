@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS Cliente(
   ,Nombre               VARCHAR(50) NOT NULL
   ,Surname              VARCHAR(30) NOT NULL
   ,Email                VARCHAR(50) NOT NULL
-  ,RFC                  VARCHAR(13) NOT NULL
+  ,RFC                  BIGINT(13) NOT NULL
 );
 INSERT INTO Customer(Customer_id,Nombre,Surname,Email,RFC) VALUES (3547,'Byrann','Le Huquet','blehuquet0@google.cn',3756412389046);
 INSERT INTO Customer(Customer_id,Nombre,Surname,Email,RFC) VALUES (3548,'Nicol','Gommery','ngommery1@netlog.com',3756412389047);
